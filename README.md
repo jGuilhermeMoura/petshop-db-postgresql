@@ -19,7 +19,6 @@ O projeto foi estruturado seguindo as melhores práticas de versionamento de ban
 * **Arquitetura Relacional Normalizada**: Modelagem baseada nas Formas Normais com relacionamento **1:N entre Clientes e Pets**, mapeando com precisão o histórico e a recorrência de atendimento de múltiplos animais por tutor.
 * **Integridade Referencial e Cascade**: Uso de constraints de chaves estrangeiras com cláusula `ON DELETE CASCADE` para garantir a consistência das tabelas e impedir a existência de registros órfãos.
 * **Validação de Entrada de Dados (Data Constraining)**: Cláusulas `CHECK` estritas que asseguram que valores monetários sejam estritamente positivos e que classificações contábeis aceitem apenas os domínios `'RECEITA'` ou `'DESPESA'`.
-* **Gatilhos de Segurança (Triggers de Auditoria)**: Implementação de um mecanismo automatizado de Logs que monitora e rastreia qualquer alteração (`UPDATE`) ou exclusão (`DELETE`) nas tabelas financeiras, gravando o estado antigo, o novo, o timestamp e o usuário responsável na tabela `auditoria_financeira`.
 
 ## Diferenciais Técnicos e Otimização de Performance
 
