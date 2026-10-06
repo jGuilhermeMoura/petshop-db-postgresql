@@ -52,6 +52,6 @@ O projeto conta com uma integração analítica completa dividida em duas camada
 
 ## Instruções de Implantação
 
-1. Instancie um servidor PostgreSQL e crie um banco de dados vazio (ex: `sonhosdepet_db`).
+1. Instancie um servidor PostgreSQL e crie um banco de dados vazio (ex: `petshop_db`).
 2. Execute os scripts localizados no diretório `sql/` respeitando estritamente a ordem de numeração dos arquivos (`01_schema.sql` ao `06_indexes.sql`).
 3. Para abrir o relatório de BI, baixe o arquivo localizado em `bi/dashboard_financeiro.pbix` e abra no Power BI Desktop. Os dados salvos em cache carregarão automaticamente na tela.
