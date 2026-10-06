@@ -34,13 +34,22 @@ AS $$
 $$;
 
 
--- 3. Função para calcular o total de valores em aberto (Inadimplência / Previsão de recebimento)
--- Para visualizar: SELECT calcular_inadimplencia();
+-- 3. Função para calcular o total de valores em aberto (Inadimplência / Previsão de recebimento).
+-- Para visualizar: SELECT * FROM calcular_inadimplencia();
 CREATE OR REPLACE FUNCTION calcular_inadimplencia()
-RETURNS NUMERIC(10,2)
+RETURNS TABLE (
+    nome_cliente VARCHAR(100),
+    total_inadimplente NUMERIC(10,2)
+)
 LANGUAGE SQL
 AS $$
-    SELECT COALESCE(SUM(valor), 0)
-    FROM contas_receber
-    WHERE data_pagamento IS NULL; 
+    SELECT 
+        c.nome_cliente,
+        COALESCE(SUM(cr.valor), 0)
+    FROM contas_receber cr
+    INNER JOIN pets p ON p.id_pet = cr.id_pet
+    INNER JOIN clientes c ON c.id_cliente = p.id_cliente
+    WHERE cr.data_pagamento IS NULL
+    GROUP BY c.nome_cliente;
 $$;
+

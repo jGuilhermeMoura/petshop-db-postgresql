@@ -41,32 +41,66 @@ VALUES
 -- 3. Cadastro das categorias financeiras
 INSERT INTO categorias (nome, tipo)
 VALUES
-    ('Serviço', 'RECEITA'),
+    ('Banho', 'RECEITA'),
+    ('Banho e Tosa', 'RECEITA'),
+    ('Tosa', 'RECEITA'),
     ('Aluguel', 'DESPESA'),
     ('Energia', 'DESPESA');
+    ('Água', 'DESPESA'),
+	('Multa', 'DESPESA');
 
--- 4. Cadastro das contas a receber (Agora vinculadas ao id_pet e com campos de data corretos)
--- Para as contas que já foram pagas, defini uma data real em Outubro/2026. Para as "Em aberto", deixei NULL.
+-- 4. Cadastro das contas a receber 
 INSERT INTO contas_receber (id_pet, id_categoria, descricao, valor, data_servico, data_pagamento)
 VALUES
-    (1, 1, 'Mensal', 120.00, '2026-10-01', '2026-10-05'),
-    (2, 1, 'Mensal', 150.50, '2026-10-02', '2026-10-10'),
-    (3, 1, 'Mensal', 95.00,  '2026-10-03', '2026-10-15'),
-    (4, 1, 'Mensal', 210.00, '2026-10-04', '2026-10-20'),
-    (5, 1, 'Mensal', 135.00, '2026-10-05', '2026-10-05'),
-    (6, 1, 'Mensal', 80.00,  '2026-10-06', '2026-10-10'),
-    (7, 1, 'Mensal', 175.20, '2026-10-07', '2026-10-15'),
-    (8, 1, 'Mensal', 110.00, '2026-10-08', '2026-10-20'),
-    (9, 1, 'Mensal', 145.00, '2026-10-09', '2026-10-05'),
-    (10, 1, 'Mensal', 200.00, '2026-10-10', '2026-10-10'),
-    (11, 1, 'Mensal', 125.50, '2026-10-11', '2026-10-15'),
-    (12, 1, 'Mensal', 90.00,  '2026-10-12', '2026-10-20'),
-    (13, 1, 'Mensal', 320.00, '2026-10-13', '2026-10-05'),
-    (14, 1, 'Semanal', 150.00, '2026-09-15', NULL), -- Em aberto
-    (15, 1, 'Semanal', 90.00,  '2026-09-18', NULL), -- Em aberto
-    (16, 1, 'Mensal', 220.00, '2026-09-20', NULL);  -- Em aberto
-     
+    -- Lançamentos de Outubro (Pagas)
+    (1, 1, 'Mensalidade de Outubro', 120.00, '2026-10-01', '2026-10-05'),
+    (2, 6, 'Mensalidade de Outubro', 150.50, '2026-10-02', '2026-10-10'),
+    (3, 7, 'Mensalidade de Outubro', 95.00,  '2026-10-03', '2026-10-15'),
+    (4, 1, 'Mensalidade de Outubro', 210.00, '2026-10-04', '2026-10-20'),
+    (5, 1, 'Mensalidade de Outubro', 135.00, '2026-10-05', '2026-10-05'),
+    (6, 6, 'Mensalidade de Outubro', 80.00,  '2026-10-06', '2026-10-10'),
+    (7, 6, 'Mensalidade de Outubro', 175.20, '2026-10-07', '2026-10-15'),
+    (8, 1, 'Mensalidade de Outubro', 110.00, '2026-10-08', '2026-10-20'),
+    (9, 1, 'Mensalidade de Outubro', 145.00, '2026-10-09', '2026-10-05'),
+    (10, 1, 'Mensalidade de Outubro', 200.00, '2026-10-10', '2026-10-10'),
+    (11, 6, 'Mensalidade de Outubro', 125.50, '2026-10-11', '2026-10-15'),
+    (12, 1, 'Mensalidade de Outubro', 90.00,  '2026-10-12', '2026-10-20'),
+    (13, 7, 'Mensalidade de Outubro', 320.00, '2026-10-13', '2026-10-05'),
+    
+    -- Lançamentos de Setembro (Já Pagas)
+    (1, 1, 'Mensalidade de Setembro', 120.00, '2026-09-01', '2026-09-05'),
+    (2, 6, 'Mensalidade de Setembro', 140.00, '2026-09-02', '2026-09-10'),
+    (3, 7, 'Mensalidade de Setembro', 110.00, '2026-09-03', '2026-09-15'),
+    (4, 1, 'Mensalidade de Setembro', 210.00, '2026-09-04', '2026-09-05'),
+    (5, 6, 'Mensalidade de Setembro', 135.00, '2026-09-05', '2026-09-10'),
+    (6, 7, 'Mensalidade de Setembro', 85.00,  '2026-09-06', '2026-09-15'),
+    (7, 1, 'Mensalidade de Setembro', 170.00, '2026-09-07', '2026-09-05'),
+    (8, 6, 'Mensalidade de Setembro', 115.00, '2026-09-08', '2026-09-10'),
+    (9, 7, 'Mensalidade de Setembro', 150.00, '2026-09-09', '2026-09-15'),
+    (10, 1, 'Mensalidade de Setembro', 190.00, '2026-09-10', '2026-09-12'),
+    (11, 6, 'Mensalidade de Setembro', 125.00, '2026-09-11', '2026-09-14'),
+    (12, 7, 'Mensalidade de Setembro', 95.00,  '2026-09-12', '2026-09-15'),
+    (13, 1, 'Mensalidade de Setembro', 310.00, '2026-09-13', '2026-09-13'),
+    (1,  6, 'Mensalidade de Setembro', 130.00, '2026-09-14', '2026-09-16'),
+    (2,  7, 'Mensalidade de Setembro', 160.00, '2026-09-15', '2026-09-17'),
+    (3,  1, 'Mensalidade de Setembro', 100.00, '2026-09-16', '2026-09-18'),
+    (4,  6, 'Mensalidade de Setembro', 215.00, '2026-09-17', '2026-09-19'),
+    (5,  7, 'Mensalidade de Setembro', 125.00, '2026-09-18', '2026-09-20'),
+    
+    -- Lançamentos de Setembro (Em aberto)
+    (14, 1, 'Mensalidade de Setembro (Semanal)', 150.00, '2026-09-15', NULL),
+    (15, 6, 'Mensalidade de Setembro (Semanal)', 90.00,  '2026-09-18', NULL),
+    (16, 1, 'Mensalidade de Setembro', 220.00, '2026-09-20', NULL);
+
+
+
 -- 5. Cadastro das contas a pagar
 INSERT INTO contas_pagar (nome_conta, id_categoria, descricao, valor, data_vencimento, data_pagamento)
 VALUES 
-    ('Aluguel', 2, 'Referente ao mês de Setembro', 1000.00, '2026-10-05', NULL);
+    ('Aluguel', 2, 'Referente ao mês de Setembro', 1000.00, '2026-09-05', NULL),
+    ('Aluguel', 2, 'Referente ao mês de Outubro', 1000.00, '2026-10-05', NULL),
+    ('Energia', 3, 'Referente ao mês de Setembro', 200.00, '2026-09-10', NULL),
+    ('Energia', 3, 'Referente ao mês de Outubro', 250.00, '2026-10-10', NULL),
+    ('Água', 4, 'Referente ao mês de Setembro', 450.00, '2026-09-07', NULL),
+    ('Água', 4, 'Referente ao mês de Setembro', 500.00, '2026-10-07', NULL),
+    ('Multa', 5, 'Multa veículo - Alta velocidade', 195.00, '2026-10-21', NULL);

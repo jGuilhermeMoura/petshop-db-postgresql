@@ -9,9 +9,9 @@ SELECT
     cr.data_pagamento
 FROM contas_receber cr
 JOIN pets p 
-    ON cr.id_pet = p.id_pet -- Conecta a conta ao pet
+    ON cr.id_pet = p.id_pet 
 JOIN clientes c 
-    ON p.id_cliente = c.id_cliente -- Conecta o pet ao cliente (dono)
+    ON p.id_cliente = c.id_cliente )
 JOIN categorias cat
     ON cr.id_categoria = cat.id_categoria;
 
