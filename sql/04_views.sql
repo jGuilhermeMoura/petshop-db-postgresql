@@ -11,7 +11,7 @@ FROM contas_receber cr
 JOIN pets p 
     ON cr.id_pet = p.id_pet 
 JOIN clientes c 
-    ON p.id_cliente = c.id_cliente )
+    ON p.id_cliente = c.id_cliente 
 JOIN categorias cat
     ON cr.id_categoria = cat.id_categoria;
 

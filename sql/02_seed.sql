@@ -45,7 +45,7 @@ VALUES
     ('Banho e Tosa', 'RECEITA'),
     ('Tosa', 'RECEITA'),
     ('Aluguel', 'DESPESA'),
-    ('Energia', 'DESPESA');
+    ('Energia', 'DESPESA'),
     ('Água', 'DESPESA'),
 	('Multa', 'DESPESA');
 
